@@ -2,7 +2,7 @@
 
 
 const express = require('express')
-const stripe = require('stripe')(process.env('STRIPE_PUBLISHABLE_KEY'));
+const stripe = require('stripe')('sk_test_51GrrvuA5V0shW7u31WIUaJhy5hM6JjCr1CPRiWkbOn78z3DfEEdLxQoD7bAn0L5OQljCeHgMDO7Qg75JwZKcmskO00WMM52Gj9');
 const app = express()
 
 app.get('/', function (req, res) {
@@ -28,6 +28,6 @@ app.post("/create-payment-intent", async (req, res) => {
 
     res.send({
         client_secret: paymentIntent.client_secret,
-        publishable_key: process.env('STRIPE_PUBLISHABLE_KEY')
+        publishable_key: 'sk_test_51GrrvuA5V0shW7u31WIUaJhy5hM6JjCr1CPRiWkbOn78z3DfEEdLxQoD7bAn0L5OQljCeHgMDO7Qg75JwZKcmskO00WMM52Gj9'
     });
 })
